@@ -25,3 +25,31 @@ class Solution {
         return result;
     }
 }
+
+//iterative solution
+
+class Solution {
+    private static final String[] map = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+    public List<String> letterCombinations(String digits) {
+        List<String> result = new ArrayList<>();
+        if (digits.length() == 0) return result;
+
+        result.add("");
+        for (int i = 0; i < digits.length(); i++) {
+            result = combine(map[digits.charAt(i) - '0'], result);
+
+        }
+        return result;
+
+    }
+
+    public List<String> combine(String digitLetters, List<String> l ) {
+        List<String> result = new ArrayList<>();
+        for (int i = 0; i < digitLetters.length(); i++) {
+            for (String x : l) {
+                result.add(x + digitLetters.charAt(i));
+            }
+        }
+        return result;
+    }
+}
