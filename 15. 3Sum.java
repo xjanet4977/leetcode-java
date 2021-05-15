@@ -22,3 +22,28 @@ class Solution {
         return new ArrayList(set);
     }
 }
+// two pointer with set solution
+class Solution {
+
+    public List<List<Integer>> threeSum(int[] nums) {
+        Set<List<Integer>> set = new HashSet<>();
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length; i++) {
+            int target = -nums[i];
+            int j = i + 1, k = nums.length - 1;
+            while (j < k) {
+                if (nums[j] +  nums[k] == target) {
+                    set.add(Arrays.asList(nums[j], nums[k], nums[i]));
+                    j++;
+                    k--;
+                } else if (nums[j] + nums[k] < target) {
+                    j++;
+                } else {
+                    k--;
+                }
+            }
+        }
+
+        return new ArrayList(set);
+    }
+}
