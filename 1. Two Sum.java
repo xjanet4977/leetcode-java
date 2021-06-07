@@ -28,6 +28,5 @@ class Solution {
             else i++;
         }
         return new int[2];
-
     }
 }
